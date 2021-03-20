@@ -1,9 +1,19 @@
 import './Dossier.scss'; 
 import { IconButton } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import imageParDefaut from '../images/couverture.webp';
+import MenuMoreVert from './MenuMoreVert';
 
 export default function Dossier({id, nom, couleur, datemodif, couverture}) {
+
+
+//changer texte si pas de date de modif
+const dateModif = datemodif!=="" ? "Modifié : "+formaterDate(datemodif) : ";-P";
+
+if(couverture==""){
+  couverture = imageParDefaut;
+}
+
 
   return (
     <article className="Dossier" style={{backgroundColor: couleur}}>
@@ -15,10 +25,10 @@ export default function Dossier({id, nom, couleur, datemodif, couverture}) {
       </div>
       <div className="info">
         <h2>{nom}</h2>
-        <p>Modifié : {formaterDate(datemodif)}</p>
+        <p>{dateModif}</p>
       </div>
       <IconButton className="modifier" aria-label="modifier" size="small">
-        <MoreVertIcon />
+        <MenuMoreVert />
       </IconButton>
     </article>
   );

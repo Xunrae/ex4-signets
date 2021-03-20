@@ -31,12 +31,21 @@ export default function ListeDossiers({utilisateur, etatDossiers}) {
     }, []
   );
 
+
+//Changer l'affichage des dosseirs si il n'y a pas de dossiers
+const lesDossiers = dossiers.length>0
+    ?
+    dossiers.map( 
+        dossier =>  <li key={dossier.id}><Dossier {...dossier} /></li>
+    )
+    :
+    <li key={"defaultKey"}><article className="DossierVide"><p className="dossiersVide">Votre liste de dossiers est vide</p><p className="smiley">;-P</p></article></li>
+
+
   return (
     <ul className="ListeDossiers">
       {
-        dossiers.map( 
-          dossier =>  <li key={dossier.id}><Dossier {...dossier} /></li>
-        )
+         lesDossiers
       }
     </ul>
   );

@@ -5,3 +5,20 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+
+.DossierVide{
+  background-color: #009977;
+  padding: 20px;
+  width: 350px;
+  height: 400px;
+  color:white;
+
+  .dossiersVide{
+    font-size: 2em;
+  }
+  .smiley{
+    font-size:7em;
+    text-align: center;
+  }
+}
